@@ -52,15 +52,6 @@ score.hideturtle()
 score.goto(0,235)
 score.write("Your Score: 0      I     High Score: 0", align="center" , font=("Arial", 24, "normal"))
 
-cp = turtle.Turtle()
-cp.speed(0)
-cp.shape("square")
-cp.color("pink")
-cp.penup()
-cp.hideturtle()
-cp.goto(150,-265)
-cp.write("© Siam Salman", align="left" , font=("Times New Roman", 16, "normal"))
-
 
 #functions
 
@@ -86,7 +77,7 @@ def move():
   y = head.ycor()
   head.sety(y + 20)
 
- if head.direction == "down":
+  if head.direction == "down":
   y = head.ycor()
   head.sety(y - 20)
 
@@ -94,7 +85,7 @@ def move():
   x = head.xcor()
   head.setx(x - 20)
 
- if head.direction == "right":
+  if head.direction == "right":
   x = head.xcor()
   head.setx(x + 20)
 
@@ -119,11 +110,11 @@ while True:
    segment.goto(1000, 1000)
 
   # clear segments list
-  segments.clear()
+   segments.clear()
 
   #reset score & delay
   your_score = 0
-  delay = 0.1
+    delay = 0.1
 
   score.clear()
   score.write("Your Score:{}     I     High Score: {}".format(your_score, high_score), align="center",
@@ -131,7 +122,7 @@ while True:
 
  #collision with food
 
- if head.distance(food) < 20:
+    if head.distance(food) < 20:
     #moving food
     x = random.randrange(-310, 310,20)
     y = random.randrange(-255, 235,20)
@@ -165,17 +156,17 @@ while True:
      segments[index].goto(x, y)
 
  #move the body 0 to head
- if len(segments) > 0:
+  if len(segments) > 0:
     x = head.xcor()
     y = head.ycor()
     segments[0].goto(x, y)
 
- move()
+move()
 
  #collision with body
  for segment in segments:
     if segment.distance(head) <20:
-     time.sleep(1)
+      time.sleep(1)
      head.goto(0, 0)
      head.direction = "stop"
 
@@ -193,7 +184,7 @@ while True:
      score.write("Your Score: {}      I     High Score: {}".format(your_score, high_score), align="center",
                font=("Arial", 24, "normal"))
 
- time.sleep(delay)
+time.sleep(delay)
 
 
 wn.mainloop()
